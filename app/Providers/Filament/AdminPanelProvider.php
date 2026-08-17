@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\GardenChemicals\Widgets\GardenChemicalPriceHistoryAverage;
 use App\Filament\Widgets\CalendarScheduleWidget;
 use App\Filament\Widgets\CalendarWidget;
 use Filament\Http\Middleware\Authenticate;
@@ -44,7 +45,8 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
-                CalendarScheduleWidget::class
+                CalendarScheduleWidget::class,
+                GardenChemicalPriceHistoryAverage::class,
             ])
             ->middleware([
                 EncryptCookies::class,
