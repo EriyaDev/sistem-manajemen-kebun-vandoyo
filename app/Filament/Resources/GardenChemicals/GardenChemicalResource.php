@@ -6,9 +6,11 @@ use App\Filament\Resources\GardenChemicals\Pages\CreateGardenChemical;
 use App\Filament\Resources\GardenChemicals\Pages\EditGardenChemical;
 use App\Filament\Resources\GardenChemicals\Pages\ListGardenChemicals;
 use App\Filament\Resources\GardenChemicals\Pages\ViewGardenChemical;
+use App\Filament\Resources\GardenChemicals\RelationManagers\PriceHistoriesRelationManager;
 use App\Filament\Resources\GardenChemicals\Schemas\GardenChemicalForm;
 use App\Filament\Resources\GardenChemicals\Schemas\GardenChemicalInfolist;
 use App\Filament\Resources\GardenChemicals\Tables\GardenChemicalsTable;
+use App\Filament\Resources\GardenChemicals\Widgets\GardenChemicalPriceHistoryAverage;
 use App\Models\GardenChemical;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -57,7 +59,7 @@ class GardenChemicalResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            PriceHistoriesRelationManager::class
         ];
     }
 
@@ -77,5 +79,11 @@ class GardenChemicalResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+    public static function getWidgets(): array
+    {
+        return [
+            GardenChemicalPriceHistoryAverage::class,
+        ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\GardenChemicals\Pages;
 
 use App\Filament\Resources\GardenChemicals\GardenChemicalResource;
+use App\Filament\Resources\GardenChemicals\Widgets\GardenChemicalPriceHistoryAverage;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
@@ -14,6 +15,13 @@ class ListGardenChemicals extends ListRecords
     {
         return [
             CreateAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            GardenChemicalPriceHistoryAverage::class,
         ];
     }
 }
