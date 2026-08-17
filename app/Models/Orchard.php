@@ -14,6 +14,8 @@ class Orchard extends Model
         'name',
         'location',
         'wide',
+        'latest_status',
+        'latest_status_date',
     ];
 
     protected function casts(): array
@@ -36,5 +38,20 @@ class Orchard extends Model
     public function spraySchedules(): HasMany
     {
         return $this->hasMany(SpraySchedule::class);
+    }
+
+    public function orchard_histories(): HasMany
+    {
+        return $this->hasMany(OrchardHistory::class);
+    }
+
+    public function getLatestStatusAttribute():string
+    {
+        return $this->orchard_histories()->latest()->first()->status ?? '';
+    }
+
+    public function getLatestStatusDateAttribute():string
+    {
+        return $this->orchard_histories()->latest()->first()->start_date ?? '';
     }
 }

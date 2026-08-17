@@ -6,6 +6,7 @@ use App\Filament\Resources\Orchards\Pages\CreateOrchard;
 use App\Filament\Resources\Orchards\Pages\EditOrchard;
 use App\Filament\Resources\Orchards\Pages\ListOrchards;
 use App\Filament\Resources\Orchards\Pages\ViewOrchard;
+use App\Filament\Resources\Orchards\RelationManagers\OrchardHistoriesRelationManager;
 use App\Filament\Resources\Orchards\Schemas\OrchardForm;
 use App\Filament\Resources\Orchards\Schemas\OrchardInfolist;
 use App\Filament\Resources\Orchards\Tables\OrchardsTable;
@@ -57,7 +58,7 @@ class OrchardResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            OrchardHistoriesRelationManager::class,
         ];
     }
 
