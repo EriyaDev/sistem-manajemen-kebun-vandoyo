@@ -18,11 +18,8 @@ class GardenChemical extends Model
         'notes',
     ];
 
-    public function spraySchedules(): BelongsToMany
-    {
-        return $this->belongsToMany(SpraySchedule::class, 'spray_schedule_garden_chemical')
-            ->using(SprayScheduleGardenChemical::class)
-            ->withPivot('dose', 'unit');
+    public function spray_schedule_garden_chemicals(){
+        return $this->hasMany(SprayScheduleGardenChemical::class);
     }
 
     public function price_histories(): HasMany

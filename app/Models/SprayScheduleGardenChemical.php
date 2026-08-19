@@ -16,12 +16,12 @@ class SprayScheduleGardenChemical extends Model
         'unit',
     ];
 
-    public function spraySchedule(): BelongsTo
+    public function spray_schedule()
     {
         return $this->belongsTo(SpraySchedule::class);
     }
 
-    public function gardenChemical(): BelongsTo
+    public function garden_chemical()
     {
         return $this->belongsTo(GardenChemical::class);
     }

@@ -37,9 +37,7 @@ class SpraySchedule extends Model
         return $this->belongsToMany(Worker::class, 'spray_schedule_workers');
     }
 
-    public function gardenChemicals(): BelongsToMany
-    {
-        return $this->belongsToMany(GardenChemical::class, 'spray_schedule_garden_chemical')
-            ->withPivot('dose', 'unit');
+    public function spray_schedule_garden_chemicals(){
+        return $this->hasMany(SprayScheduleGardenChemical::class);
     }
 }

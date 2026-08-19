@@ -6,6 +6,8 @@ use App\Filament\Resources\SpraySchedules\Pages\CreateSpraySchedule;
 use App\Filament\Resources\SpraySchedules\Pages\EditSpraySchedule;
 use App\Filament\Resources\SpraySchedules\Pages\ListSpraySchedules;
 use App\Filament\Resources\SpraySchedules\Pages\ViewSpraySchedule;
+use App\Filament\Resources\SpraySchedules\RelationManagers\GardenChemicalsRelationManager;
+use App\Filament\Resources\SpraySchedules\RelationManagers\SprayScheduleGardenChemicalsRelationManager;
 use App\Filament\Resources\SpraySchedules\Schemas\SprayScheduleForm;
 use App\Filament\Resources\SpraySchedules\Schemas\SprayScheduleInfolist;
 use App\Filament\Resources\SpraySchedules\Tables\SpraySchedulesTable;
@@ -55,7 +57,7 @@ class SprayScheduleResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+             SprayScheduleGardenChemicalsRelationManager::class
         ];
     }
 
