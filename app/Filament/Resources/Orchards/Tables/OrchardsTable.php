@@ -20,12 +20,24 @@ class OrchardsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Nama Kebun'),
                 TextColumn::make('location')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Lokasi'),
                 TextColumn::make('wide')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->suffix(' m²')
+                    ->label('Luas Kebun'),
+                TextColumn::make('apple_variant')
+                    ->searchable()
+                    ->label('Jenis Apel'),
+                TextColumn::make('population_total')
+                    ->numeric()
+                    ->sortable()
+                    ->label('Total Pohon')
+                    ->suffix(' pohon'),
             ])
             ->filters([
                 // TrashedFilter::make(),

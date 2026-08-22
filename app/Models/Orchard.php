@@ -14,6 +14,8 @@ class Orchard extends Model
         'name',
         'location',
         'wide',
+        'apple_variant',
+        'population_total',
         'latest_status',
         'latest_status_date',
     ];
