@@ -22,6 +22,9 @@ class GardenChemicalPriceHistory extends Model
     }
 
     static function last_month_price_average(){
-        return self::query()->avg('price')->whereMonth('date', now()->subMonth()->month)->whereYear('date', now()->subMonth()->year);
+        return self::query()
+            ->whereMonth('date', now()->subMonth()->month)
+            ->whereYear('date', now()->subMonth()->year)
+            ->avg('price');
     }
 }

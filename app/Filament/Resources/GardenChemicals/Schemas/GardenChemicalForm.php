@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\GardenChemicals\Schemas;
 
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -36,7 +38,10 @@ class GardenChemicalForm
                         'set' => 'Set',
                         'lainnya' => 'Lainnya',
                     ]),
-                TextInput::make('notes'),
+                DatePicker::make('expired_date')
+                    ->nullable(),
+                Textarea::make('notes')
+                    ->columnSpanFull(),
             ]);
     }
 }
